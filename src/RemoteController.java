@@ -1,8 +1,8 @@
-public class RemoteControl {
+public class RemoteController {
     private final Command onCommand;
     private final Command offCommand;
 
-    public RemoteControl(Command onCommand, Command offCommand) {
+    public RemoteController(Command onCommand, Command offCommand) {
         this.onCommand = onCommand;
         this.offCommand = offCommand;
     }
@@ -15,4 +15,5 @@ public class RemoteControl {
         offCommand.execute();
     }
 }
+
 

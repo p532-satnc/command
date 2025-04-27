@@ -1,17 +1,33 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        Light light = new Light();
+        // RemoteController for Fan
         Fan fan = new Fan();
+        RemoteController fanController = new RemoteController(fan::startRotate, fan::stopRotate);
 
-        RemoteControl lightControl = new RemoteControl(light::turnOn, light::turnOff);
-        RemoteControl fanControl = new RemoteControl(fan::startRotate, fan::stopRotate);
+        fanController.on();
+        fanController.off();
 
-        System.out.println("Using Light Remote:");
-        lightControl.on();
-        lightControl.off();
+        System.out.println();
 
-        System.out.println("Using Fan Remote:");
-        fanControl.on();
-        fanControl.off();
+        // RemoteController for Light
+        Light light = new Light();
+        RemoteController lightController = new RemoteController(light::turnOn, light::turnOff);
+
+        lightController.on();
+        lightController.off();
+
+        System.out.println();
+
+
+        List<String> words = Arrays.asList("apple", "banana", "cherry", "apricot", "blueberry");
+
+        RegexIterable filteredWords = new RegexIterable(words, "^a"); // words starting with 'a'
+
+        for (String word : filteredWords) {
+            System.out.println(word);
+        }
     }
 }
